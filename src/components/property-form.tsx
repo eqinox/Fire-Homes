@@ -1,8 +1,9 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { propertyDataSchema } from "@/validation/propertySchema";
 import { z } from "zod";
+
+import { propertyDataSchema } from "@/validation/propertySchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,

@@ -1,9 +1,14 @@
+import Link from "next/link";
+import { PlusCircleIcon } from "lucide-react";
+
 import { Breadcrumbs } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import { PlusCircleIcon } from "lucide-react";
-import Link from "next/link";
+import { getProperties } from "@/data/properties";
 
-export default function AdminDashboard() {
+export default async function AdminDashboard() {
+  const data = await getProperties();
+
+  console.log({ data });
   return (
     <div>
       <Breadcrumbs

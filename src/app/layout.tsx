@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import Link from "next/link";
+import { Poppins } from "next/font/google";
+import { HomeIcon } from "lucide-react";
+
+import "./globals.css";
 import { AuthProvider } from "@/context/auth";
 import AuthButtons from "@/components/auth-buttons";
-import { HomeIcon } from "lucide-react";
-import { Poppins } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 
 const poppins = Poppins({
