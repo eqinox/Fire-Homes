@@ -7,7 +7,7 @@ import { PlusCircleIcon } from "lucide-react";
 import PropertyForm from "@/components/property-form";
 import { useAuth } from "@/context/auth";
 import { propertyDataSchema } from "@/validation/propertySchema";
-import { saveNewProperty } from "./actions";
+import { createProperty } from "./actions";
 import { useToast } from "@/hooks/use-toast";
 
 export default function NewPropertyForm() {
@@ -22,7 +22,7 @@ export default function NewPropertyForm() {
       return;
     }
 
-    const response = await saveNewProperty({ ...data, token });
+    const response = await createProperty(data, token);
 
     if (!!response.error) {
       toast({
