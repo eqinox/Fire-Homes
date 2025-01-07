@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     provider.setCustomParameters({
       prompt: "select_account",
     });
-    signInWithPopup(auth, provider);
+    await signInWithPopup(auth, provider);
   };
 
   return (
