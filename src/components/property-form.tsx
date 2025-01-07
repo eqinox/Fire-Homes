@@ -78,7 +78,7 @@ export default function PropertyForm({
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="draft">Draft</SelectItem>
-                        <SelectItem value="for-save">For Sale</SelectItem>
+                        <SelectItem value="for-sale">For Sale</SelectItem>
                         <SelectItem value="withdrawn">Withdrawn</SelectItem>
                         <SelectItem value="sold">Sold</SelectItem>
                       </SelectContent>
