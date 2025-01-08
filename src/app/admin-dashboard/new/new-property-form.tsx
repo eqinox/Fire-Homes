@@ -3,14 +3,14 @@
 import { z } from "zod";
 import { useRouter } from "next/navigation";
 import { PlusCircleIcon } from "lucide-react";
+import { ref, uploadBytesResumable, UploadTask } from "firebase/storage";
 
 import PropertyForm from "@/components/property-form";
 import { useAuth } from "@/context/auth";
 import { propertySchema } from "@/validation/propertySchema";
-import { createProperty, savePropertyImages } from "./actions";
+import { createProperty } from "./actions";
+import { savePropertyImages } from "../actions";
 import { useToast } from "@/hooks/use-toast";
-
-import { ref, uploadBytesResumable, UploadTask } from "firebase/storage";
 import { storage } from "@/firebase/client";
 
 export default function NewPropertyForm() {
@@ -48,9 +48,8 @@ export default function NewPropertyForm() {
         uploadTasks.push(uploadBytesResumable(storageRef, image.file));
       }
     });
-    console.log("uploadTasks", uploadTasks);
+
     await Promise.all(uploadTasks);
-    console.log("doest not enter here");
 
     await savePropertyImages(
       {

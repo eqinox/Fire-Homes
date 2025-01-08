@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import { Button } from "./ui/button";
 import {
   DragDropContext,
   Droppable,
@@ -9,8 +8,10 @@ import {
   DropResult,
 } from "@hello-pangea/dnd";
 import Image from "next/image";
-import { Badge } from "./ui/badge";
 import { MoveIcon, XIcon } from "lucide-react";
+
+import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
 
 export type ImageUpload = {
   id: string;
@@ -21,11 +22,13 @@ export type ImageUpload = {
 type Props = {
   images?: ImageUpload[];
   onImagesChange: (images: ImageUpload[]) => void;
+  urlFormatter?: (image: ImageUpload) => string;
 };
 
 export default function MultiImageUploader({
   images = [],
   onImagesChange,
+  urlFormatter,
 }: Props) {
   const uploadInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -94,7 +97,7 @@ export default function MultiImageUploader({
                       <div className="bg-gray-100 rounded-lg flex gap-2 items-center overflow-hidden">
                         <div className="size-16 relative">
                           <Image
-                            src={image.url}
+                            src={urlFormatter ? urlFormatter(image) : image.url}
                             alt=""
                             fill
                             className="object-cover"

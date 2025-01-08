@@ -2,9 +2,9 @@
 
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { propertySchema } from "@/validation/propertySchema";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
@@ -222,6 +222,14 @@ export default function PropertyForm({
                     form.setValue("images", images);
                   }}
                   images={field.value}
+                  urlFormatter={(image) => {
+                    if (!image.file) {
+                      return `https://firebasestorage.googleapis.com/v0/b/next2-app-5a30b.firebasestorage.app/o/${encodeURIComponent(
+                        image.url
+                      )}?alt=media`;
+                    }
+                    return image.url;
+                  }}
                 />
               </FormControl>
               <FormMessage />

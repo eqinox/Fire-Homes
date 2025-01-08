@@ -1,7 +1,9 @@
 "use client";
 
-import { useAuth } from "@/context/auth";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,9 +12,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
+import { useAuth } from "@/context/auth";
 import { Avatar, AvatarFallback } from "./ui/avatar";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 export default function AuthButtons() {
   const router = useRouter();
