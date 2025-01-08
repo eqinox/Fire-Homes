@@ -6,25 +6,28 @@ import { PlusCircleIcon } from "lucide-react";
 
 import PropertyForm from "@/components/property-form";
 import { useAuth } from "@/context/auth";
-import { propertyDataSchema } from "@/validation/propertySchema";
-import { createProperty } from "./actions";
+import { propertySchema } from "@/validation/propertySchema";
+import { createProperty, savePropertyImages } from "./actions";
 import { useToast } from "@/hooks/use-toast";
+
+import { ref, uploadBytesResumable, UploadTask } from "firebase/storage";
+import { storage } from "@/firebase/client";
 
 export default function NewPropertyForm() {
   const auth = useAuth();
   const { toast } = useToast();
   const router = useRouter();
 
-  const handleSubmit = async (data: z.infer<typeof propertyDataSchema>) => {
+  const handleSubmit = async (data: z.infer<typeof propertySchema>) => {
     const token = await auth?.currentUser?.getIdToken();
 
     if (!token) {
       return;
     }
+    const { images, ...rest } = data;
+    const response = await createProperty(rest, token);
 
-    const response = await createProperty(data, token);
-
-    if (!!response.error) {
+    if (!!response.error || !response.propertyId) {
       toast({
         title: "Error!",
         description: response.message,
@@ -32,6 +35,30 @@ export default function NewPropertyForm() {
       });
       return;
     }
+
+    const uploadTasks: UploadTask[] = [];
+    const paths: string[] = [];
+    images.forEach((image, index) => {
+      if (image.file) {
+        const path = `properties/${
+          response.propertyId
+        }/${Date.now()}-${index}-${image.file.name}`;
+        paths.push(path);
+        const storageRef = ref(storage, path);
+        uploadTasks.push(uploadBytesResumable(storageRef, image.file));
+      }
+    });
+    console.log("uploadTasks", uploadTasks);
+    await Promise.all(uploadTasks);
+    console.log("doest not enter here");
+
+    await savePropertyImages(
+      {
+        propertyId: response.propertyId,
+        images: paths,
+      },
+      token
+    );
 
     toast({
       title: "Success!",
