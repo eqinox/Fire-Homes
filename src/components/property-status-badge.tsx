@@ -19,10 +19,16 @@ const variant: {
 
 export default function PropertyStatusBadge({
   status,
+  className,
 }: {
   status: PropertyStatus;
+  className?: string;
 }) {
   const label = statusLabel[status];
 
-  return <Badge variant={variant[status]}>{label}</Badge>;
+  return (
+    <Badge className={className} variant={variant[status]}>
+      {label}
+    </Badge>
+  );
 }
