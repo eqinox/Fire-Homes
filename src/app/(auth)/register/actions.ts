@@ -24,10 +24,10 @@ export const registerUser = async (data: {
       email: data.email,
       password: data.password,
     });
-  } catch (e) {
+  } catch (e: any) {
     return {
       error: true,
-      message: "Could not register user",
+      message: e.message ?? "Could not register user",
     };
   }
 };
