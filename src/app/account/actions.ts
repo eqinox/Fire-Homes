@@ -1,7 +1,8 @@
 "use server";
 
-import { auth, firestore } from "@/firebase/server";
 import { cookies } from "next/headers";
+
+import { auth, firestore } from "@/firebase/server";
 
 export const deleteUserFavourites = async () => {
   const cookieStore = await cookies();
