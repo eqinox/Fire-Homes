@@ -1,6 +1,8 @@
-import { auth, firestore } from "@/firebase/server";
-import { cookies } from "next/headers";
 import "server-only";
+
+import { cookies } from "next/headers";
+
+import { auth, firestore } from "@/firebase/server";
 
 export const getUserFavourites = async () => {
   const cookiesStore = await cookies();
