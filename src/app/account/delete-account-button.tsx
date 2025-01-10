@@ -2,6 +2,11 @@
 
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import {
+  deleteUser,
+  EmailAuthProvider,
+  reauthenticateWithCredential,
+} from "firebase/auth";
 
 import {
   AlertDialog,
@@ -19,11 +24,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { removeToken } from "@/context/actions";
 import { useAuth } from "@/context/auth";
-import {
-  deleteUser,
-  EmailAuthProvider,
-  reauthenticateWithCredential,
-} from "firebase/auth";
 import { deleteUserFavourites } from "./actions";
 
 export default function DeleteAccountButton() {

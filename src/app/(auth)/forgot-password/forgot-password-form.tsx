@@ -1,11 +1,12 @@
 "use client";
 
+import { useState } from "react";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { useToast } from "@/hooks/use-toast";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { auth } from "@/firebase/client";
-import { useToast } from "@/hooks/use-toast";
-import { sendPasswordResetEmail } from "firebase/auth";
-import { useState } from "react";
 
 export default function ForgotPasswordForm() {
   const { toast } = useToast();

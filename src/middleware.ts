@@ -21,7 +21,6 @@ export async function middleware(request: NextRequest) {
   ) {
     return NextResponse.next();
   }
-
   if (
     token &&
     (pathname.startsWith("/login") ||
@@ -51,6 +50,7 @@ export async function middleware(request: NextRequest) {
   }
 
   if (decodedToken.admin && pathname.startsWith("/account/my-favourites")) {
+    console.log("vlizame");
     return NextResponse.redirect(new URL("/", request.url));
   }
 
