@@ -1,6 +1,7 @@
 "use server";
 
 import { cookies } from "next/headers";
+
 import { auth } from "@/firebase/server";
 
 export const removeToken = async () => {

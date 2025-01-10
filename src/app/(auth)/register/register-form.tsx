@@ -100,7 +100,7 @@ export default function RegisterForm() {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Password" />
+                    <Input {...field} placeholder="Password" type="password" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -116,7 +116,11 @@ export default function RegisterForm() {
                 <FormItem>
                   <FormLabel>Confirm password</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Confirm password" />
+                    <Input
+                      {...field}
+                      placeholder="Confirm password"
+                      type="password"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
