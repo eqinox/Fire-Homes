@@ -20,6 +20,7 @@ import RemoveFavouriteButton from "./remove-favourite-button";
 export default async function MyFavourites({
   searchParams,
 }: {
+  // eslint-disable-next-line
   searchParams: Promise<any>;
 }) {
   const searchParamsValues = await searchParams;

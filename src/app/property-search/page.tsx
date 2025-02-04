@@ -17,6 +17,7 @@ import { DecodedIdToken } from "firebase-admin/auth";
 export default async function PropertySearch({
   searchParams,
 }: {
+  // eslint-disable-next-line
   searchParams: Promise<any>;
 }) {
   const searchParamsValues = await searchParams;
@@ -67,7 +68,7 @@ export default async function PropertySearch({
           </Suspense>
         </CardContent>
       </Card>
-      <div className="grid grid-cols-3 mt-5 gap-5">
+      <div className="grid lg:grid-cols-3 mt-5 gap-5 md:grid-cols-2 grid-cols-1">
         {data.map((property) => {
           const addressLines = [
             property.address1,

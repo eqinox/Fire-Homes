@@ -70,6 +70,7 @@ export default function UpdatePassword() {
       });
       form.reset();
     } catch (e: any) {
+      // eslint-disable-next-line
       toast({
         title:
           e.code === "auth/invalid-credential"

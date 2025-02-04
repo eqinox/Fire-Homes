@@ -6,6 +6,7 @@ import EditPropertyForm from "./edit-property-form";
 export default async function EditProperty({
   params,
 }: {
+  // eslint-disable-next-line
   params: Promise<any>;
 }) {
   const paramsValue = await params;

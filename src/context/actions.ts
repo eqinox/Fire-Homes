@@ -12,6 +12,7 @@ export const removeToken = async () => {
 
 export const setToken = async ({
   token,
+  // eslint-disable-next-line
   refreshToken,
 }: {
   token: string;

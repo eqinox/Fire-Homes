@@ -56,7 +56,7 @@ export default function FiltersForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
-        className="grid grid-cols-4 gap-2"
+        className="grid lg:grid-cols-4 gap-2 md:grid-cols-3 grid-cols-2"
       >
         <FormField
           control={form.control}

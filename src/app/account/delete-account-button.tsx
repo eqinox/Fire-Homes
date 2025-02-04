@@ -48,6 +48,7 @@ export default function DeleteAccountButton() {
           variant: "success",
         });
       } catch (e: any) {
+        // eslint-disable-next-line
         toast({
           title:
             e.code === "auth/invalid-credential"

@@ -25,6 +25,7 @@ export const registerUser = async (data: {
       password: data.password,
     });
   } catch (e: any) {
+    // eslint-disable-next-line
     return {
       error: true,
       message: e.message ?? "Could not register user",

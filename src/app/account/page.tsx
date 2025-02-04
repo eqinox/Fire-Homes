@@ -25,6 +25,7 @@ export default async function Account() {
   try {
     decodedToken = await auth.verifyIdToken(token);
   } catch (e) {
+    // eslint-disable-next-line
     redirect("/");
   }
 
