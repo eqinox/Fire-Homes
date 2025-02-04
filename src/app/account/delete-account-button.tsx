@@ -47,8 +47,10 @@ export default function DeleteAccountButton() {
           title: "You account was deleted succeffully",
           variant: "success",
         });
-      } catch (e: any) {
+      } catch (
         // eslint-disable-next-line
+        e: any
+      ) {
         toast({
           title:
             e.code === "auth/invalid-credential"

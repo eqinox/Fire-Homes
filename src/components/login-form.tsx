@@ -42,7 +42,10 @@ export default function CommonLoginForm({
     try {
       await auth?.loginWithEmail(data.email, data.password);
       onSuccess?.();
-    } catch (e: any) {
+    } catch (
+      // eslint-disable-next-line
+      e: any
+    ) {
       toast({
         title: "Error!",
         description:

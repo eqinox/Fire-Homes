@@ -15,7 +15,10 @@ export default function ContinueWithGoogleButton() {
         try {
           await auth?.loginWithGoogle();
           router.refresh();
-        } catch (e) {}
+        } catch (
+          // eslint-disable-next-line
+          e
+        ) {}
       }}
       className="w-full"
     >
