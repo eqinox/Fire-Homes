@@ -118,7 +118,13 @@ export default async function PropertySearch({
                   <p className="text-2xl">
                     ${numeral(property.price).format("0,0")}
                   </p>
-                  <Button asChild>
+                  <Button
+                    asChild
+                    style={{
+                      WebkitAppearance: "none",
+                      WebkitTapHighlightColor: "transparent",
+                    }}
+                  >
                     <Link href={`/property/${property.id}`}>View Property</Link>
                   </Button>
                 </div>

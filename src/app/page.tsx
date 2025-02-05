@@ -20,7 +20,13 @@ export default function Home() {
           <span>Find your new home</span>
           <span>with fire homes</span>
 
-          <Button className="mt-6 max-w-96 px-10 py-6 mx-auto text-xl">
+          <Button
+            className="mt-6 max-w-96 px-10 py-6 mx-auto text-xl"
+            style={{
+              WebkitAppearance: "none",
+              WebkitTapHighlightColor: "transparent",
+            }}
+          >
             <Search />
             <Link
               href="/property-search"

@@ -112,7 +112,14 @@ export default function FiltersForm() {
           )}
         />
 
-        <Button className="mt-auto" type="submit">
+        <Button
+          className="mt-auto"
+          type="submit"
+          style={{
+            WebkitAppearance: "none",
+            WebkitTapHighlightColor: "transparent",
+          }}
+        >
           Search
         </Button>
       </form>
